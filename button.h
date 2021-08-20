@@ -11,5 +11,4 @@ long long int handle_button_alarm(long int a, void *p);
 void handle_button_interrupt(void *p);
 button_t * create_button(int pin, void (*onchange)(button_t *));
 
-
 #endif
