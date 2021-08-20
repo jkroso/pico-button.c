@@ -1,9 +1,17 @@
-#include "./deps/pico-gpio-interrupt/gpio-interrupt.c"
+#ifndef PICO_BUTTON_C
+#define PICO_BUTTON_C
+
 #include "pico/stdlib.h"
-#include "./button.h"
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include "pico-gpio-interrupt/gpio-interrupt.c"
+
+typedef struct button_t {
+  uint8_t pin;
+  bool state;
+  void (*onchange)(struct button_t *button);
+} button_t;
 
 long long int handle_button_alarm(long int a, void *p) {
   button_t *b = (button_t *)(p);
@@ -29,3 +37,5 @@ button_t * create_button(int pin, void (*onchange)(button_t *)) {
   b->state = gpio_get(pin);
   return b;
 }
+
+#endif

@@ -23,7 +23,7 @@ typedef struct button_t {
 ## Example
 
 ```c
-#include "./deps/pico-button/button.c"
+#include "pico-button/button.c"
 
 void onchange(button_t *button_p) {
   button_t *button = (button_t*)button_p;

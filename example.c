@@ -1,8 +1,7 @@
-#include "./deps/GPIO-Interrupt/GPIO-Interrupt.c"
-#include "./src/Button.c"
 #include "pico/stdlib.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include "Button.c"
 
 void onchange(button_t *button_p) {
   button_t *button = (button_t*)button_p;
