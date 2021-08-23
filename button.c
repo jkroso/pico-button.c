@@ -26,7 +26,7 @@ long long int handle_button_alarm(long int a, void *p) {
 void handle_button_interrupt(void *p) {
   button_t *b = (button_t *)(p);
   bool state = gpio_get(b->pin);
-  add_alarm_in_us(100, handle_button_alarm, b, true);
+  add_alarm_in_us(200, handle_button_alarm, b, true);
 }
 
 button_t * create_button(int pin, void (*onchange)(button_t *)) {
