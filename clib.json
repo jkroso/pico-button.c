@@ -1,12 +1,12 @@
 {
   "name": "pico-button",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "repo": "jkroso/pico-button.c",
   "description": "A debounced button struct for the Raspberry Pico",
   "keywords": ["pico", "button"],
   "license": "MIT",
   "src": ["button.c"],
   "dependencies": {
-    "jkroso/pico-gpio-interrupt.c": "0.1.1"
+    "jkroso/pico-gpio-interrupt.c": "0.1"
   }
 }
