@@ -31,9 +31,11 @@ void handle_button_interrupt(void *p) {
 
 button_t * create_button(int pin, void (*onchange)(button_t *)) {
   button_t *b = (button_t *)(malloc(sizeof(button_t)));
-  listen(pin, GPIO_IRQ_EDGE_RISE | GPIO_IRQ_EDGE_FALL, handle_button_interrupt, b);
+  // Fill in b before listen() so an early interrupt doesn't read garbage
   b->pin = pin;
   b->onchange = onchange;
+  listen(pin, GPIO_IRQ_EDGE_RISE | GPIO_IRQ_EDGE_FALL, handle_button_interrupt, b);
+  // Read the state after listen() has turned on the pull-up
   b->state = gpio_get(pin);
   return b;
 }
